@@ -1,4 +1,14 @@
 module.exports = (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');  // Permite solicitudes de cualquier origen
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
+
+    if (req.method === 'OPTIONS') {
+        // Maneja las solicitudes OPTIONS
+        res.status(200).end();
+        return;
+    }
+
     const products = [
         {
             id: 1,
