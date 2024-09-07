@@ -2,14 +2,17 @@
     "version": 2,
     "builds": [
         {
-            "src": "api/*.js",
+            "src": "my-api/api/*.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "/api/$1.js"
+            "src": "my-api/api/(.*)",
+            "dest": "my-api/api/$1.js"
         }
-    ]
+    ],
+    "env": {
+        "MY_ENV_VAR": "value"
+    }
 }
